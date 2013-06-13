@@ -1,5 +1,9 @@
-bin
-.metadata
-*~
+#Eclipse
+.settings/
+.project
+.classpath
+
+
+#Maven
 target/
-*.class
+pom.xml.*
