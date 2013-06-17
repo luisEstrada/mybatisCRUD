@@ -1,5 +1,7 @@
 package org.luis.mybatis.domain;
 
+import com.google.common.base.Objects;
+
 public class User {
 	
 	private Integer userId;
@@ -11,9 +13,13 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", emailId=" + emailId
-				+ ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + "]";
+		return Objects.toStringHelper(this)
+			.add("userId", userId)
+			.add("emailId", emailId)
+			.add("password", password)
+			.add("firstName", firstName)
+			.add("lastName", lastName)
+			.toString();
 	}
 
 
