@@ -1,17 +1,32 @@
-CREATE TABLE USER(
+CREATE TABLE IF NOT EXISTS USER(
     user_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     email_id VARCHAR(45) NOT NULL,
     password VARCHAR(45) NOT NULL,
     first_name VARCHAR(45) NOT NULL,
     last_name VARCHAR(45) DEFAULT NULL,
+    blog_id INT(10) UNSIGNED DEFAULT NULL,
     PRIMARY KEY (user_id),
-    UNIQUE KEY Index_2_email_uniq (email_id)
+    UNIQUE KEY Index_2_email_uniq (email_id),
+    KEY FK_user_blog (blog_id),
+    CONSTRAINT FK_user_blog FOREIGN KEY (blog_id) REFERENCES blog (blog_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
-CREATE TABLE BLOG(
+CREATE TABLE IF NOT EXISTS BLOG(
     blog_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     blog_name VARCHAR(40) NOT NULL,
     created_on DATETIME NOT NULL,
     PRIMARY KEY (blog_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+
+CREATE TABLE IF NOT EXISTS POST(
+    post_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    title VARCHAR(45) NOT NULL,
+    content VARCHAR(1024) NOT NULL,
+    created_on VARCHAR(45) NOT NULL,
+    blog_id INT(10) UNSIGNED NOT NULL,
+    PRIMARY KEY (post_id),
+    KEY FK_post_blog (blog_id),
+    CONSTRAINT FK_post_blog FOREIGN KEY (blog_id) REFERENCES BLOG (blog_id)
+)ENGINE=InnoDB DEFAULT CHARSET=UTF8;
