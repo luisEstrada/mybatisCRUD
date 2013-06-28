@@ -5,8 +5,8 @@ CREATE TABLE USER(
     first_name VARCHAR(45) NOT NULL,
     last_name VARCHAR(45) DEFAULT NULL,
     PRIMARY KEY (user_id),
-    UNIQUE KEY Index_2_email_uniq (email_id)  
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    UNIQUE KEY Index_2_email_uniq (email_id)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
 CREATE TABLE BLOG(
@@ -14,4 +14,4 @@ CREATE TABLE BLOG(
     blog_name VARCHAR(40) NOT NULL,
     created_on DATETIME NOT NULL,
     PRIMARY KEY (blog_id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
